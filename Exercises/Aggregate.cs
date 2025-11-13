@@ -21,8 +21,7 @@ namespace Exercises
         public static TimeSpan TotalActivityDuration(
             IEnumerable<int> activityTimesInSeconds)
         {
-            //TODO your code goes here
-            throw new NotImplementedException();
+            return activityTimesInSeconds.Aggregate(TimeSpan.Zero, (current, second) => current + TimeSpan.FromSeconds(second));
         }
 
         //Coding Exercise 2

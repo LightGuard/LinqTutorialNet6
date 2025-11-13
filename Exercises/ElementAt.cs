@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace Exercises
@@ -23,8 +24,10 @@ namespace Exercises
         public static bool IsTheNumberAtIndexTheLargest(
             IEnumerable<int> numbers, int index)
         {
-            //TODO your code goes here
-            throw new NotImplementedException();
+            if (numbers == null || !numbers.Any()) return false;
+            if (index < 0 || index > numbers.Count()) return false;
+
+            return numbers.ElementAt(index) == numbers.Max();
         }
 
         //Coding Exercise 2
@@ -39,16 +42,16 @@ namespace Exercises
         public static string FormatPetDataAtIndex(
             IEnumerable<Pet> pets, int index)
         {
-            //TODO your code goes here
-            throw new NotImplementedException();
+            return pets.ElementAtOrDefault(index) == null
+                ? $"Pet data is missing for index {index}"
+                : $"Pet name: {pets.ElementAtOrDefault(index)?.Name}";
         }
 
         //Refactoring challenge
         //TODO implement this method
         public static bool IsEmptyAtIndex_Refactored(IEnumerable<string> words, int index)
         {
-            //TODO your code goes here
-            throw new NotImplementedException();
+            return string.IsNullOrEmpty(words.ElementAtOrDefault(index));
         }
 
         //do not modify this method
